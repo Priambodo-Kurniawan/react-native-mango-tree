@@ -9,8 +9,8 @@ class TreeImage extends React.Component {
         <View>
           <Image
             style={{
-              width: 500,
-              height: 500,
+              width: 300,
+              height: 300,
               alignSelf: 'center',
               backgroundColor: '#eee'
             }}
@@ -19,16 +19,46 @@ class TreeImage extends React.Component {
         </View>
       )
     }
+    else if(this.props.tree.tree.old >= 15) {
+      return (
+        <View>
+          <Image
+            style={{
+              width: 300,
+              height: 300,
+              alignSelf: 'center',
+              backgroundColor: '#eee'
+            }}
+            source={require(`../assets/3.png`)}
+          />
+        </View>
+      )
+    }
+    else if(this.props.tree.tree.old >= 5) {
+      return (
+        <View>
+          <Image
+            style={{
+              width: 300,
+              height: 300,
+              alignSelf: 'center',
+              backgroundColor: '#eee'
+            }}
+            source={require(`../assets/2.png`)}
+          />
+        </View>
+      )
+    }
     return (
       <View>
         <Image
           style={{
-            width: 500,
-            height: 500,
+            width: 300,
+            height: 300,
             alignSelf: 'center',
             backgroundColor: '#eee'
           }}
-          source={{uri: `../assets/0.png`}}
+          source={require(`../assets/0.png`)}
         />
       </View>
     )

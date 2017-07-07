@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Text, View } from 'react-native'
+import { Button, Text, View, StyleSheet } from 'react-native'
 import { connect } from 'react-redux';
 
 import {
@@ -8,19 +8,31 @@ import {
 import renderIf from '../helper/helper';
 import TreeImage from '../components/treeImage';
 
+const styles = StyleSheet.create({
+  textTree: {
+    justifyContent: 'center',
+    fontSize: 20,
+    alignSelf: 'center',
+    color: 'white',
+  },
+  container: {
+    backgroundColor:'#469879'
+  }
+});
+
 class TreeContainer extends React.Component {
   static navigationOptions = {
     title: 'Tree',
   }
   render() {
-    console.log(this.props.tree.tree.treeName);
+    // console.log(this.props.tree.tree.treeName);
     const { navigate } = this.props.navigation;
     return (
-      <View>
-        <Text>
+      <View style={styles.container}>
+        <Text style={styles.textTree}>
           This is {this.props.tree.tree.treeName},
         </Text>
-        <Text>
+        <Text style={styles.textTree}>
           he is {this.props.tree.tree.old} years old.
         </Text>
         <TreeImage />
