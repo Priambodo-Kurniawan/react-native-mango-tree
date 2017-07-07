@@ -7,6 +7,7 @@ export const addOldAction = (old) => {
 
 export const changeNameAction = (name) => {
   return {
-    type: 'CHANGE_NAME'
+    type: 'CHANGE_NAME',
+    payload: name,
   }
 }
