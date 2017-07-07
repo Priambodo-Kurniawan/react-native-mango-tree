@@ -15,7 +15,7 @@ class HomeScreen extends React.Component {
 
   render() {
     const { navigate } = this.props.navigation;
-    console.log(this.props.tree);
+    // console.log(this.props.tree.tree.treeName);
     return (
       <View>
         <Text>
@@ -42,7 +42,7 @@ class HomeScreen extends React.Component {
           }}
         />
         {
-          renderIf(this.props.tree.treeName !== null,
+          renderIf(this.props.tree.tree.treeName !== null,
             <Button
             title="Start"
             onPress = {() => navigate('TreeContainer')}
