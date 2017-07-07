@@ -1,9 +1,12 @@
+const fruit = Math.floor(Math.random() * 6) + 1
+
 const initialState = {
   tree: {
     treeName: null,
     old: 1,
-    fruit: 0,
+    fruit: fruit,
     life: 17,
+    basket: 0,
   },
   userName: 'Iam',
 }
@@ -16,7 +19,7 @@ export default (state = initialState, action) => {
     return {...state, tree: {...state.tree, old: action.payload}}
   }
   if(action.type === 'HARVEST') {
-    return {...state, tree: {...state.tree, fruit: action.payload}}
+    return {...state, tree: {...state.tree, basket: action.payload, fruit: 0}}
   }
   return state
 }

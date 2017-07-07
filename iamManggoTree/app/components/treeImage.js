@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 class TreeImage extends React.Component {
   render(){
-    if(this.props.tree.tree.old >= 17) {
+    if(this.props.tree.tree.old >= 23) {
       return (
         <View>
           <Image
@@ -19,7 +19,7 @@ class TreeImage extends React.Component {
         </View>
       )
     }
-    else if(this.props.tree.tree.old >= 15) {
+    else if(this.props.tree.tree.old >= 17) {
       return (
         <View>
           <Image
@@ -34,7 +34,7 @@ class TreeImage extends React.Component {
         </View>
       )
     }
-    else if(this.props.tree.tree.old >= 5) {
+    else if(this.props.tree.tree.old >= 12) {
       return (
         <View>
           <Image
@@ -45,6 +45,21 @@ class TreeImage extends React.Component {
               backgroundColor: '#eee'
             }}
             source={require(`../assets/2.png`)}
+          />
+        </View>
+      )
+    }
+    else if(this.props.tree.tree.old >= 5) {
+      return (
+        <View>
+          <Image
+            style={{
+              width: 300,
+              height: 300,
+              alignSelf: 'center',
+              backgroundColor: '#eee'
+            }}
+            source={require(`../assets/1.png`)}
           />
         </View>
       )
