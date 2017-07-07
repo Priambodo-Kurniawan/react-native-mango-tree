@@ -11,3 +11,9 @@ export const changeNameAction = (name) => {
     payload: name,
   }
 }
+export const harvestAction = (fruit) => {
+  return {
+    type: 'HARVEST',
+    payload: fruit,
+  }
+}

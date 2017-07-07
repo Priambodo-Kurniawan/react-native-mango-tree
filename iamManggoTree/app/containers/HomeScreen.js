@@ -46,7 +46,7 @@ class HomeScreen extends React.Component {
             <Button
             title="Start"
             onPress = {() => navigate('TreeContainer')}
-          />)
+          ></Button>)
         }
       </View>
     )

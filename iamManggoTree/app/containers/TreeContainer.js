@@ -1,12 +1,14 @@
 import React from 'react';
-import { Button, Text, View, StyleSheet } from 'react-native'
+import { Button, Text, View, StyleSheet, Dimensions } from 'react-native'
 import { connect } from 'react-redux';
 
 import {
   addOldAction,
+  harvestAction,
 } from '../actions'
 import renderIf from '../helper/helper';
 import TreeImage from '../components/treeImage';
+const window = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   textTree: {
@@ -16,7 +18,9 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   container: {
-    backgroundColor:'#469879'
+    backgroundColor:'#23ab83',
+    padding: 30,
+    height: window.height-80,
   }
 });
 
@@ -35,15 +39,33 @@ class TreeContainer extends React.Component {
         <Text style={styles.textTree}>
           he is {this.props.tree.tree.old} years old.
         </Text>
+        <Text style={styles.textTree}>
+          ({this.props.tree.tree.fruit})
+        </Text>
         <TreeImage />
-        <Button
-          title="Emulate"
-          onPress = {() => {
-            let addOld = this.props.tree.tree.old + 1;
-            this.props.addOldAction(addOld);
-            console.log(addOld);
-          }}
-        />
+
+        {
+          renderIf(this.props.tree.tree.fruit == 0,
+            <View style={{marginBottom: 20}}>
+              <Button
+                title="Emulate"
+                onPress = {() => {
+                  let addOld = this.props.tree.tree.old + 1;
+                  this.props.addOldAction(addOld);
+                  console.log(addOld);
+                }}
+              ></Button>
+            </View>)
+        }
+        {
+          renderIf(this.props.tree.tree.old >= 17,
+            <Button
+            title="Harvest"
+            onPress = {() => {
+              this.props.harvestAction(20)
+            }}
+          ></Button>)
+        }
       </View>
     )
   }
@@ -52,6 +74,7 @@ class TreeContainer extends React.Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     addOldAction: (old) => dispatch(addOldAction(old)),
+    harvestAction: (fruit) => dispatch(harvestAction(fruit)),
   }
 }
 
